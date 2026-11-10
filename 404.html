@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found</title>
+<script>
+  // Super STT's pages moved to /super-voice/ when its repo was renamed.
+  // GitHub Pages doesn't redirect a renamed repo's site, so this page does.
+  (function () {
+    var l = window.location;
+    var m = l.pathname.match(/^\/super-stt(\/.*)?$/);
+    if (m) l.replace("/super-voice" + (m[1] || "/") + l.search + l.hash);
+  })();
+</script>
+<style>
+  :root { --fg: #1f2328; --bg: #ffffff; --link: #0969da; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fg: #e6edf3; --bg: #0d1117; --link: #4493f8; }
+  }
+  body {
+    font-family: system-ui, sans-serif;
+    color: var(--fg);
+    background: var(--bg);
+    max-width: 36rem;
+    margin: 4rem auto;
+    padding: 0 16px;
+    line-height: 1.5;
+  }
+  a { color: var(--link); }
+</style>
+</head>
+<body>
+<h1>Page not found</h1>
+<p>Looking for Super Voice? It's at <a href="/super-voice/">jorge-menjivar.github.io/super-voice</a>.</p>
+</body>
+</html>

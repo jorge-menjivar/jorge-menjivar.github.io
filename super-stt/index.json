@@ -1,0 +1,1095 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-10T05:02:02Z",
+  "min_client": "0.1.0",
+  "backends": [
+    {
+      "id": "deepgram",
+      "source": "github.com/jorge-menjivar/super-stt-deepgram",
+      "version": "0.1.0",
+      "tag": "v0.1.0",
+      "name": "Deepgram",
+      "description": "Cloud speech-to-text via the Deepgram API.",
+      "license": "GPL-3.0-only",
+      "kind": "wasm",
+      "contract": "v1",
+      "min_client": "0.2.0",
+      "entrypoint": "deepgram.wasm",
+      "allowed_hosts": [
+        "api.deepgram.com"
+      ],
+      "online": true,
+      "supports_gpu": false,
+      "supports_cpu": false,
+      "models": [
+        {
+          "name": "nova-3",
+          "provider": "",
+          "supported_devices": [
+            "none"
+          ],
+          "role": "transcription"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "deepgram_api_key",
+          "label": "Deepgram API key",
+          "required": true
+        }
+      ],
+      "options": [],
+      "assets": {
+        "wasm": {
+          "url": "https://github.com/jorge-menjivar/super-stt-deepgram/releases/download/v0.1.0/deepgram.wasm",
+          "size": 208325,
+          "sha256": "3f00db3c6dd7fd2a67a865df4c2ac259d62eefe8e02971f23ce99ad24758dc6d"
+        }
+      },
+      "manifest": {
+        "url": "https://github.com/jorge-menjivar/super-stt-deepgram/releases/download/v0.1.0/backend.toml",
+        "size": 2110,
+        "sha256": "4cf34eaee84404fb31b0e7f120626cbcde63e9a4da233cd45e43feea8cc873c1"
+      }
+    },
+    {
+      "id": "mistral",
+      "backend_id": "app.super-stt.mistral",
+      "source": "github.com/jorge-menjivar/super-stt-mistral",
+      "version": "0.1.1",
+      "tag": "v0.1.1",
+      "name": "Mistral",
+      "description": "Cloud speech-to-text via the Mistral (Voxtral) API.",
+      "license": "GPL-3.0-only",
+      "kind": "wasm",
+      "contract": "v2",
+      "min_client": "0.2.4-beta.1",
+      "entrypoint": "mistral.wasm",
+      "allowed_hosts": [
+        "api.mistral.ai"
+      ],
+      "online": true,
+      "supports_gpu": false,
+      "supports_cpu": false,
+      "models": [
+        {
+          "name": "voxtral-mini-latest",
+          "provider": "",
+          "supported_devices": [
+            "none"
+          ],
+          "role": "transcription"
+        },
+        {
+          "name": "voxtral-mini-transcribe-realtime-2602",
+          "provider": "",
+          "supported_devices": [
+            "none"
+          ],
+          "role": "transcription"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "mistral_api_key",
+          "label": "Mistral API key",
+          "required": true
+        }
+      ],
+      "options": [],
+      "assets": {
+        "wasm": {
+          "url": "https://github.com/jorge-menjivar/super-stt-mistral/releases/download/v0.1.1/mistral.wasm",
+          "size": 280029,
+          "sha256": "c829b1a71c71ed0b1567e6f8bee0a16c87f033fbf31dd084c532863ff052594a"
+        }
+      },
+      "manifest": {
+        "url": "https://github.com/jorge-menjivar/super-stt-mistral/releases/download/v0.1.1/backend.toml",
+        "size": 1538,
+        "sha256": "d291db462c340d66d7c11bf14d7adb4bce0ca2d6dd9ead94ee69d104b81eea8b"
+      }
+    },
+    {
+      "id": "openai",
+      "backend_id": "app.super-stt.openai",
+      "source": "github.com/jorge-menjivar/super-stt-openai",
+      "version": "0.1.2",
+      "tag": "v0.1.2",
+      "name": "OpenAI",
+      "description": "Cloud speech-to-text via the OpenAI API.",
+      "license": "GPL-3.0-only",
+      "kind": "wasm",
+      "contract": "v2",
+      "min_client": "0.2.4-beta.1",
+      "entrypoint": "openai.wasm",
+      "allowed_hosts": [
+        "api.openai.com"
+      ],
+      "online": true,
+      "supports_gpu": false,
+      "supports_cpu": false,
+      "models": [
+        {
+          "name": "whisper-1",
+          "provider": "",
+          "supported_devices": [
+            "none"
+          ],
+          "role": "transcription"
+        },
+        {
+          "name": "gpt-4o-transcribe",
+          "provider": "",
+          "supported_devices": [
+            "none"
+          ],
+          "role": "transcription"
+        },
+        {
+          "name": "gpt-4o-mini-transcribe",
+          "provider": "",
+          "supported_devices": [
+            "none"
+          ],
+          "role": "transcription"
+        },
+        {
+          "name": "other",
+          "provider": "",
+          "supported_devices": [
+            "none"
+          ],
+          "role": "transcription"
+        },
+        {
+          "name": "gpt-live-transcribe",
+          "provider": "",
+          "supported_devices": [
+            "none"
+          ],
+          "role": "transcription"
+        },
+        {
+          "name": "other-realtime",
+          "provider": "",
+          "supported_devices": [
+            "none"
+          ],
+          "role": "transcription"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "openai_api_key",
+          "label": "OpenAI API key",
+          "required": false
+        }
+      ],
+      "options": [
+        {
+          "name": "base_url",
+          "label": "API base URL",
+          "type": "string"
+        },
+        {
+          "name": "custom_model",
+          "label": "Custom model name",
+          "type": "string"
+        }
+      ],
+      "assets": {
+        "wasm": {
+          "url": "https://github.com/jorge-menjivar/super-stt-openai/releases/download/v0.1.2/openai.wasm",
+          "size": 313374,
+          "sha256": "b7bedd6856a4a268782274e778f0f239c686e6b46ef15fabfdeb4d12fc623048"
+        }
+      },
+      "manifest": {
+        "url": "https://github.com/jorge-menjivar/super-stt-openai/releases/download/v0.1.2/backend.toml",
+        "size": 7793,
+        "sha256": "be2179514236942332c477dad7cd8a50377d117fbec77a296b1c3c645248f572"
+      }
+    },
+    {
+      "id": "qwen",
+      "backend_id": "app.super-stt.qwen",
+      "source": "github.com/super-libre/super-stt-qwen",
+      "version": "0.1.0",
+      "tag": "v0.1.0",
+      "name": "Qwen",
+      "description": "Local Qwen3-ASR speech-to-text with streamed previews.",
+      "license": "GPL-3.0-only",
+      "kind": "subprocess",
+      "contract": "v4",
+      "min_client": "0.3.0",
+      "entrypoint": "super-stt-backend-qwen",
+      "allowed_hosts": [],
+      "online": false,
+      "supports_gpu": true,
+      "supports_cpu": true,
+      "models": [
+        {
+          "name": "qwen3-asr-0.6b",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription"
+        },
+        {
+          "name": "qwen3-asr-1.7b",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription"
+        }
+      ],
+      "secrets": [],
+      "options": [],
+      "assets": {
+        "subprocess": [
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cpu",
+            "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.0/qwen3-asr-x86_64-unknown-linux-gnu-cpu.tar.gz",
+            "size": 15496680,
+            "sha256": "a70995b44ae64437abced1f7440919f6baa5fc612f2ad02eb883e4e5571afc96"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 12,
+            "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.0/qwen3-asr-x86_64-unknown-linux-gnu-cuda12.tar.gz",
+            "size": 56561529,
+            "sha256": "bfc392941471c03c150f831d253598657ec72a063ea44f0c581f855c4b47617c"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.0/qwen3-asr-x86_64-unknown-linux-gnu-cuda13.tar.gz",
+            "size": 56558484,
+            "sha256": "b4c84bce16fbb241cb65f669869ec36c031d442251c8967950d27d1ecad1c6b3"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "rocm",
+            "gfx": [
+              "gfx908",
+              "gfx90a",
+              "gfx942",
+              "gfx1013",
+              "gfx1030",
+              "gfx1100",
+              "gfx1101",
+              "gfx1102",
+              "gfx1150",
+              "gfx1151",
+              "gfx1152",
+              "gfx1200",
+              "gfx1201"
+            ],
+            "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.0/qwen3-asr-x86_64-unknown-linux-gnu-rocm.tar.gz",
+            "size": 64774601,
+            "sha256": "6ea1f7bfa0e0e77b836d8918314477fe892beafd1c7231f2dec7b91f71b062b7"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "vulkan",
+            "vulkan_api": "1.2",
+            "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.0/qwen3-asr-x86_64-unknown-linux-gnu-vulkan.tar.gz",
+            "size": 33268649,
+            "sha256": "4a368633a16b3e2c82615693c2f23b03585cf18af4e15924ae6a13efefa717e3"
+          },
+          {
+            "target": "aarch64-unknown-linux-gnu",
+            "accel": "cpu",
+            "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.0/qwen3-asr-aarch64-unknown-linux-gnu-cpu.tar.gz",
+            "size": 15512927,
+            "sha256": "8af053581b405b5134be023aaf73f9c91f8357c1f8a5bbdb38ca009f6cb7fc1e"
+          },
+          {
+            "target": "aarch64-unknown-linux-gnu",
+            "accel": "vulkan",
+            "vulkan_api": "1.2",
+            "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.0/qwen3-asr-aarch64-unknown-linux-gnu-vulkan.tar.gz",
+            "size": 37651219,
+            "sha256": "00f4c5ae50b7244fd4363d12f7ad9b395cea406ff9710547b000df76a6cf37c4"
+          },
+          {
+            "target": "aarch64-apple-darwin",
+            "accel": "metal",
+            "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.0/qwen3-asr-aarch64-apple-darwin-metal.tar.gz",
+            "size": 27977490,
+            "sha256": "0b0db99337b53f355d483092544f489782c7114c47aff7d9ba3cf24a3488fbd6"
+          },
+          {
+            "target": "aarch64-apple-darwin",
+            "accel": "cpu",
+            "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.0/qwen3-asr-aarch64-apple-darwin-cpu.tar.gz",
+            "size": 13405844,
+            "sha256": "c4f1ceb5f18f0f6d9c964cca5cc0a2a1e5015206b95521744e0507587d45a24f"
+          },
+          {
+            "target": "x86_64-apple-darwin",
+            "accel": "metal",
+            "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.0/qwen3-asr-x86_64-apple-darwin-metal.tar.gz",
+            "size": 29053578,
+            "sha256": "c033d7a58df32bf51d31e8d579bcf3b1ffb1be6512a2c8dab2cf0da3c69f6ee5"
+          },
+          {
+            "target": "x86_64-apple-darwin",
+            "accel": "cpu",
+            "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.0/qwen3-asr-x86_64-apple-darwin-cpu.tar.gz",
+            "size": 14398445,
+            "sha256": "1a3194a0ce891399ceaaeaad2ec78a5006c237f5f85998ed15f228a5c7a7646f"
+          }
+        ]
+      },
+      "manifest": {
+        "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.0/backend.toml",
+        "size": 9038,
+        "sha256": "5c9807fe80e8badf9022ece8a963acd5123259adb19f5a08abae22c7258bfdb9"
+      }
+    },
+    {
+      "id": "qwen3_asr",
+      "backend_id": "app.super-stt.qwen-transformers",
+      "source": "github.com/jorge-menjivar/super-stt-qwen-asr",
+      "version": "0.1.1",
+      "tag": "v0.1.1",
+      "name": "Qwen3-ASR",
+      "description": "Local Qwen3-ASR speech-to-text on PyTorch and transformers: CUDA or CPU.",
+      "license": "GPL-3.0-only",
+      "kind": "subprocess",
+      "contract": "v3",
+      "min_client": "0.3.0",
+      "entrypoint": "bin/qwen3-asr",
+      "allowed_hosts": [],
+      "online": false,
+      "supports_gpu": true,
+      "supports_cpu": true,
+      "models": [
+        {
+          "name": "qwen3-asr-0.6b",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription"
+        },
+        {
+          "name": "qwen3-asr-1.7b",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription"
+        }
+      ],
+      "secrets": [],
+      "options": [],
+      "assets": {
+        "subprocess": [
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cpu",
+            "url": "https://github.com/jorge-menjivar/super-stt-qwen-asr/releases/download/v0.1.1/qwen3-asr-x86_64-unknown-linux-gnu-cpu.tar.gz",
+            "size": 455865212,
+            "sha256": "8ba6fbc80eb73889bf76dbe4cebed5c5f3eb81020688a64573d632cc123a9fca"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "parts": [
+              {
+                "url": "https://github.com/jorge-menjivar/super-stt-qwen-asr/releases/download/v0.1.1/qwen3-asr-x86_64-unknown-linux-gnu-cuda13.tar.gz.part00",
+                "size": 2097152000,
+                "sha256": "9566bce1af34b85da9761cc28e30a9a8f6cf6e77c5cd557dadd5722f33f20eae"
+              },
+              {
+                "url": "https://github.com/jorge-menjivar/super-stt-qwen-asr/releases/download/v0.1.1/qwen3-asr-x86_64-unknown-linux-gnu-cuda13.tar.gz.part01",
+                "size": 1189414667,
+                "sha256": "5f02da3c8f2cc4d7a9ce01fb87c1645f21b76ee5f85d696c145d3f2ceb771cbc"
+              }
+            ]
+          }
+        ]
+      },
+      "manifest": {
+        "url": "https://github.com/jorge-menjivar/super-stt-qwen-asr/releases/download/v0.1.1/backend.toml",
+        "size": 5547,
+        "sha256": "375d47c484ed8a17764aba7e6df328ef7eec6419d25bf3f783b21f6677f6f8bf"
+      }
+    },
+    {
+      "id": "s1_mini",
+      "backend_id": "app.super-stt.s1-mini",
+      "source": "github.com/jorge-menjivar/super-stt-s1-mini",
+      "version": "0.1.0",
+      "tag": "v0.1.0",
+      "name": "S1-mini",
+      "description": "S1-mini by Superwhisper, a small local model that cleans up dictated text. Removes fillers, resolves corrections, fixes punctuation and casing, and writes out numbers and dates. English only.",
+      "license": "GPL-3.0-only",
+      "kind": "subprocess",
+      "contract": "v2",
+      "min_client": "0.2.4-beta.1",
+      "entrypoint": "super-stt-backend-s1-mini",
+      "allowed_hosts": [],
+      "online": false,
+      "supports_gpu": true,
+      "supports_cpu": true,
+      "models": [
+        {
+          "name": "s1-mini-q4_k_m",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "post_processor"
+        }
+      ],
+      "secrets": [],
+      "options": [
+        {
+          "name": "styling",
+          "label": "Styling",
+          "type": "string",
+          "default": "semi-formal"
+        },
+        {
+          "name": "structure",
+          "label": "Structure",
+          "type": "string",
+          "default": "prose"
+        },
+        {
+          "name": "context",
+          "label": "Context",
+          "type": "string",
+          "default": "general"
+        }
+      ],
+      "assets": {
+        "subprocess": [
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cpu",
+            "url": "https://github.com/jorge-menjivar/super-stt-s1-mini/releases/download/v0.1.0/s1-mini-x86_64-unknown-linux-gnu-cpu.tar.gz",
+            "size": 3737420,
+            "sha256": "f2e9959f18aaf313843689f7a79c028eeeefb94f02120b790579a3e116367d6e"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 12,
+            "cuda_sm": 75,
+            "url": "https://github.com/jorge-menjivar/super-stt-s1-mini/releases/download/v0.1.0/s1-mini-x86_64-unknown-linux-gnu-cuda12-sm75.tar.gz",
+            "size": 16128066,
+            "sha256": "e336b9a26257b31aba90824a0f09b2ee47d5ab551613e09edd4ba805ff03621a"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 12,
+            "cuda_sm": 80,
+            "url": "https://github.com/jorge-menjivar/super-stt-s1-mini/releases/download/v0.1.0/s1-mini-x86_64-unknown-linux-gnu-cuda12-sm80.tar.gz",
+            "size": 15875968,
+            "sha256": "00f920647de88ffa7f57c4ceba3a4eb557fbf759adbea1c4831437e525bc6c43"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 12,
+            "cuda_sm": 86,
+            "url": "https://github.com/jorge-menjivar/super-stt-s1-mini/releases/download/v0.1.0/s1-mini-x86_64-unknown-linux-gnu-cuda12-sm86.tar.gz",
+            "size": 15287429,
+            "sha256": "6c20710e04ce019574864af9300f91ad00de7e9166559280dd11a3c3f346a2b1"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 12,
+            "cuda_sm": 89,
+            "url": "https://github.com/jorge-menjivar/super-stt-s1-mini/releases/download/v0.1.0/s1-mini-x86_64-unknown-linux-gnu-cuda12-sm89.tar.gz",
+            "size": 15224998,
+            "sha256": "1965ef0f5fa8a2dc37218119a9c4792dc7f7bce0dd41eab4af11273894a675e7"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 12,
+            "cuda_sm": 90,
+            "url": "https://github.com/jorge-menjivar/super-stt-s1-mini/releases/download/v0.1.0/s1-mini-x86_64-unknown-linux-gnu-cuda12-sm90.tar.gz",
+            "size": 15736453,
+            "sha256": "628934d51d7955e1f91952427ffc5fbc862de47129471d606511d33eab6ee670"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "cuda_sm": 75,
+            "url": "https://github.com/jorge-menjivar/super-stt-s1-mini/releases/download/v0.1.0/s1-mini-x86_64-unknown-linux-gnu-cuda13-sm75.tar.gz",
+            "size": 16250253,
+            "sha256": "68a31d4b62d8afbed9951b599a7193ed7967bd7d184a175710b44c3f9855685c"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "cuda_sm": 80,
+            "url": "https://github.com/jorge-menjivar/super-stt-s1-mini/releases/download/v0.1.0/s1-mini-x86_64-unknown-linux-gnu-cuda13-sm80.tar.gz",
+            "size": 15998152,
+            "sha256": "a0b647e9a995e5273db085cb637b5908bdff79b52b9f14ba058d139131ccf4c1"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "cuda_sm": 86,
+            "url": "https://github.com/jorge-menjivar/super-stt-s1-mini/releases/download/v0.1.0/s1-mini-x86_64-unknown-linux-gnu-cuda13-sm86.tar.gz",
+            "size": 15403690,
+            "sha256": "96754c27cb82df6ad44f45c870db689304de5f6be028cd19b66d8ee2b8838e02"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "cuda_sm": 89,
+            "url": "https://github.com/jorge-menjivar/super-stt-s1-mini/releases/download/v0.1.0/s1-mini-x86_64-unknown-linux-gnu-cuda13-sm89.tar.gz",
+            "size": 15343844,
+            "sha256": "0e2305f464cd60318f32b1b30bd6525889f7bca26985a678c189612696863e92"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "cuda_sm": 90,
+            "url": "https://github.com/jorge-menjivar/super-stt-s1-mini/releases/download/v0.1.0/s1-mini-x86_64-unknown-linux-gnu-cuda13-sm90.tar.gz",
+            "size": 15852038,
+            "sha256": "ffede099387d3c17b008c9dd64525f58fd756e0c5181a3239806b538b1cf7554"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "cuda_sm": 100,
+            "url": "https://github.com/jorge-menjivar/super-stt-s1-mini/releases/download/v0.1.0/s1-mini-x86_64-unknown-linux-gnu-cuda13-sm100.tar.gz",
+            "size": 18535714,
+            "sha256": "5ade35e205bca73b9c14a77981f59c9b47ea525388e3aefc590811047b71cf29"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "cuda_sm": 120,
+            "url": "https://github.com/jorge-menjivar/super-stt-s1-mini/releases/download/v0.1.0/s1-mini-x86_64-unknown-linux-gnu-cuda13-sm120.tar.gz",
+            "size": 18490975,
+            "sha256": "3de9be01c0f93c3e79f48f5d0a9cd70a393661e89de740937cb7ed29b0e423c6"
+          },
+          {
+            "target": "aarch64-unknown-linux-gnu",
+            "accel": "cpu",
+            "url": "https://github.com/jorge-menjivar/super-stt-s1-mini/releases/download/v0.1.0/s1-mini-aarch64-unknown-linux-gnu-cpu.tar.gz",
+            "size": 3273550,
+            "sha256": "7a89fefa61a12b8a01ebc0e0045aa60032040a70d858eaf20b6ac23e44bcad61"
+          }
+        ]
+      },
+      "manifest": {
+        "url": "https://github.com/jorge-menjivar/super-stt-s1-mini/releases/download/v0.1.0/backend.toml",
+        "size": 7025,
+        "sha256": "fadeb89aefb348938174afde2492f991b497536db9b483110d5d8efff7d33125"
+      }
+    },
+    {
+      "id": "tidy",
+      "backend_id": "app.super-stt.tidy",
+      "source": "github.com/jorge-menjivar/super-stt-tidy",
+      "version": "0.1.0",
+      "tag": "v0.1.0",
+      "name": "Tidy",
+      "description": "Tidies up dictated text before it is typed. Removes filler sounds, collapses stutters, repairs punctuation and spacing, and fixes sentence casing.",
+      "license": "GPL-3.0-only",
+      "kind": "wasm",
+      "contract": "v2",
+      "min_client": "0.2.4-beta.1",
+      "entrypoint": "tidy.wasm",
+      "allowed_hosts": [],
+      "online": false,
+      "supports_gpu": false,
+      "supports_cpu": true,
+      "models": [
+        {
+          "name": "rules-v1",
+          "provider": "",
+          "supported_devices": [
+            "cpu"
+          ],
+          "role": "post_processor"
+        }
+      ],
+      "secrets": [],
+      "options": [
+        {
+          "name": "normalize_unicode",
+          "label": "Normalize punctuation",
+          "type": "bool",
+          "default": true
+        },
+        {
+          "name": "remove_fillers",
+          "label": "Remove filler sounds",
+          "type": "bool",
+          "default": true
+        },
+        {
+          "name": "dedupe_words",
+          "label": "Collapse stutters",
+          "type": "bool",
+          "default": true
+        },
+        {
+          "name": "fix_punctuation",
+          "label": "Repair punctuation spacing",
+          "type": "bool",
+          "default": true
+        },
+        {
+          "name": "collapse_whitespace",
+          "label": "Collapse whitespace",
+          "type": "bool",
+          "default": true
+        },
+        {
+          "name": "sentence_case",
+          "label": "Fix sentence casing",
+          "type": "bool",
+          "default": true
+        }
+      ],
+      "assets": {
+        "wasm": {
+          "url": "https://github.com/jorge-menjivar/super-stt-tidy/releases/download/v0.1.0/tidy.wasm",
+          "size": 202247,
+          "sha256": "b7a599e277a6cff87b993ff81230410f02c11e91c38c6de3661fa21746d4339b"
+        }
+      },
+      "manifest": {
+        "url": "https://github.com/jorge-menjivar/super-stt-tidy/releases/download/v0.1.0/backend.toml",
+        "size": 3470,
+        "sha256": "5aa3e58e1773b45b36fd8fe8e36f7048c2472fc244401214d1f6e04be37c15c6"
+      }
+    },
+    {
+      "id": "voxtral",
+      "source": "github.com/jorge-menjivar/super-stt-voxtral",
+      "version": "0.1.1",
+      "tag": "v0.1.1",
+      "name": "Voxtral",
+      "description": "Local Voxtral speech-to-text.",
+      "license": "GPL-3.0-only",
+      "kind": "subprocess",
+      "contract": "v1",
+      "min_client": "0.2.0",
+      "entrypoint": "super-stt-backend-voxtral",
+      "allowed_hosts": [],
+      "online": false,
+      "supports_gpu": true,
+      "supports_cpu": false,
+      "models": [
+        {
+          "name": "voxtral-mini-3b-2507",
+          "provider": "",
+          "supported_devices": [
+            "gpu"
+          ],
+          "role": "transcription"
+        },
+        {
+          "name": "voxtral-small-24b-2507",
+          "provider": "",
+          "supported_devices": [
+            "gpu"
+          ],
+          "role": "transcription"
+        }
+      ],
+      "secrets": [],
+      "options": [],
+      "assets": {
+        "subprocess": [
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cpu",
+            "url": "https://github.com/jorge-menjivar/super-stt-voxtral/releases/download/v0.1.1/voxtral-x86_64-unknown-linux-gnu-cpu.tar.gz",
+            "size": 3356350,
+            "sha256": "56d6388b00ced7d80ce06365a46b550006e45a061abfcb7086bad6480cff696c"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 12,
+            "cuda_sm": 75,
+            "url": "https://github.com/jorge-menjivar/super-stt-voxtral/releases/download/v0.1.1/voxtral-x86_64-unknown-linux-gnu-cuda12-sm75.tar.gz",
+            "size": 15319945,
+            "sha256": "eb3e07b13078031a87f5b739120ebde9e122fcfcd6549ffe1f1d9f92b1e5bde9"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 12,
+            "cuda_sm": 80,
+            "url": "https://github.com/jorge-menjivar/super-stt-voxtral/releases/download/v0.1.1/voxtral-x86_64-unknown-linux-gnu-cuda12-sm80.tar.gz",
+            "size": 15308669,
+            "sha256": "7fd2d437f1b5375b46e71678c383032e20609b912e7a345c14f1cba1b96ed945"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 12,
+            "cuda_sm": 86,
+            "url": "https://github.com/jorge-menjivar/super-stt-voxtral/releases/download/v0.1.1/voxtral-x86_64-unknown-linux-gnu-cuda12-sm86.tar.gz",
+            "size": 14717862,
+            "sha256": "c34d32a3499afbb48d5306a30bf7f3acfe04031123633442b63b388cae3b3259"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 12,
+            "cuda_sm": 89,
+            "url": "https://github.com/jorge-menjivar/super-stt-voxtral/releases/download/v0.1.1/voxtral-x86_64-unknown-linux-gnu-cuda12-sm89.tar.gz",
+            "size": 14491964,
+            "sha256": "c0ccbb77e329b474e88a27550678859cfbdd8329dbbf0c77ce13690831ff803d"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 12,
+            "cuda_sm": 90,
+            "url": "https://github.com/jorge-menjivar/super-stt-voxtral/releases/download/v0.1.1/voxtral-x86_64-unknown-linux-gnu-cuda12-sm90.tar.gz",
+            "size": 14994708,
+            "sha256": "8532ab4fb21cae836dae7904acb314ad63ed5f5e0833feeb7bfbe759635343fa"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "cuda_sm": 75,
+            "url": "https://github.com/jorge-menjivar/super-stt-voxtral/releases/download/v0.1.1/voxtral-x86_64-unknown-linux-gnu-cuda13-sm75.tar.gz",
+            "size": 15438064,
+            "sha256": "0e4517d8db19b560c8f20ac31d030ccef1cf415ad2a8a88a26533dc254e6ba29"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "cuda_sm": 80,
+            "url": "https://github.com/jorge-menjivar/super-stt-voxtral/releases/download/v0.1.1/voxtral-x86_64-unknown-linux-gnu-cuda13-sm80.tar.gz",
+            "size": 15428216,
+            "sha256": "a367f0a93631ebea52b7436946536017b70322ca712f61a24d8fa95ca0a3822e"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "cuda_sm": 86,
+            "url": "https://github.com/jorge-menjivar/super-stt-voxtral/releases/download/v0.1.1/voxtral-x86_64-unknown-linux-gnu-cuda13-sm86.tar.gz",
+            "size": 14834101,
+            "sha256": "84ac233a4f73a842c4408a54069c42c97fbc22fe02fee0bd9552554cc116e89e"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "cuda_sm": 89,
+            "url": "https://github.com/jorge-menjivar/super-stt-voxtral/releases/download/v0.1.1/voxtral-x86_64-unknown-linux-gnu-cuda13-sm89.tar.gz",
+            "size": 14612363,
+            "sha256": "d029c57461c289c894a1f7c69269b9492dc1a7483a2d3d462482b64bd6443b35"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "cuda_sm": 90,
+            "url": "https://github.com/jorge-menjivar/super-stt-voxtral/releases/download/v0.1.1/voxtral-x86_64-unknown-linux-gnu-cuda13-sm90.tar.gz",
+            "size": 15114198,
+            "sha256": "168794ab5eb5f6b63fd3d6e9003e99cab6694246e2c4e1ad97e0c21540709b3a"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "cuda_sm": 100,
+            "url": "https://github.com/jorge-menjivar/super-stt-voxtral/releases/download/v0.1.1/voxtral-x86_64-unknown-linux-gnu-cuda13-sm100.tar.gz",
+            "size": 18979092,
+            "sha256": "21b55a879bcf5225372c3cfc0441d8e044b5a8574322dbf45021110f5099794d"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "cuda_sm": 120,
+            "url": "https://github.com/jorge-menjivar/super-stt-voxtral/releases/download/v0.1.1/voxtral-x86_64-unknown-linux-gnu-cuda13-sm120.tar.gz",
+            "size": 18936880,
+            "sha256": "18f7c1b53fd163d15cae97e3f049649897eaa11fe58793e35510a81745e460f0"
+          },
+          {
+            "target": "aarch64-unknown-linux-gnu",
+            "accel": "cpu",
+            "url": "https://github.com/jorge-menjivar/super-stt-voxtral/releases/download/v0.1.1/voxtral-aarch64-unknown-linux-gnu-cpu.tar.gz",
+            "size": 2767276,
+            "sha256": "1abd418ed92d6865650e862521fc6481286a09d7b3e9e8e01bf61c67898c9031"
+          }
+        ]
+      },
+      "manifest": {
+        "url": "https://github.com/jorge-menjivar/super-stt-voxtral/releases/download/v0.1.1/backend.toml",
+        "size": 7183,
+        "sha256": "df92e6ac5a6ac9f799b76bfdc4d6b25674b2818f8343242113636eb41642931b"
+      }
+    },
+    {
+      "id": "whisper",
+      "backend_id": "app.super-stt.whisper",
+      "source": "github.com/jorge-menjivar/super-stt-whisper",
+      "version": "0.1.1",
+      "tag": "v0.1.1",
+      "name": "Whisper",
+      "description": "Local Whisper speech-to-text.",
+      "license": "GPL-3.0-only",
+      "kind": "subprocess",
+      "contract": "v2",
+      "min_client": "0.2.4-beta.1",
+      "entrypoint": "super-stt-backend-whisper",
+      "allowed_hosts": [],
+      "online": false,
+      "supports_gpu": true,
+      "supports_cpu": true,
+      "models": [
+        {
+          "name": "whisper-tiny",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription"
+        },
+        {
+          "name": "whisper-tiny.en",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription"
+        },
+        {
+          "name": "whisper-base",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription"
+        },
+        {
+          "name": "whisper-base.en",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription"
+        },
+        {
+          "name": "whisper-small",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription"
+        },
+        {
+          "name": "whisper-small.en",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription"
+        },
+        {
+          "name": "whisper-medium",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription"
+        },
+        {
+          "name": "whisper-medium.en",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription"
+        },
+        {
+          "name": "whisper-large",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription"
+        }
+      ],
+      "secrets": [],
+      "options": [],
+      "assets": {
+        "subprocess": [
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cpu",
+            "url": "https://github.com/jorge-menjivar/super-stt-whisper/releases/download/v0.1.1/whisper-x86_64-unknown-linux-gnu-cpu.tar.gz",
+            "size": 3478946,
+            "sha256": "58f0cc275a6124d6ad69c83400508ce8a99aef6ca00121efa3a4e47de86ce336"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 12,
+            "cuda_sm": 75,
+            "url": "https://github.com/jorge-menjivar/super-stt-whisper/releases/download/v0.1.1/whisper-x86_64-unknown-linux-gnu-cuda12-sm75.tar.gz",
+            "size": 14632193,
+            "sha256": "6e058c2890066fb9b008131d044517ea4daf7636276cd853b6bf80ec68fe4a95"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 12,
+            "cuda_sm": 80,
+            "url": "https://github.com/jorge-menjivar/super-stt-whisper/releases/download/v0.1.1/whisper-x86_64-unknown-linux-gnu-cuda12-sm80.tar.gz",
+            "size": 14238000,
+            "sha256": "4c35e7738176f2aa01a271e5c62da9bd8eefcd261fc0fbe61d0b3ccd303f23bc"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 12,
+            "cuda_sm": 86,
+            "url": "https://github.com/jorge-menjivar/super-stt-whisper/releases/download/v0.1.1/whisper-x86_64-unknown-linux-gnu-cuda12-sm86.tar.gz",
+            "size": 13646222,
+            "sha256": "f5861a4dba579bf90aa7fa0a4fb5b9f2d960655451e623aae4fc8630c8523a9a"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 12,
+            "cuda_sm": 89,
+            "url": "https://github.com/jorge-menjivar/super-stt-whisper/releases/download/v0.1.1/whisper-x86_64-unknown-linux-gnu-cuda12-sm89.tar.gz",
+            "size": 13628228,
+            "sha256": "7cc3a79dba1d3b2b2a604238129478e5500ca0f6d1cf2f89de0b362d9b3bab83"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 12,
+            "cuda_sm": 90,
+            "url": "https://github.com/jorge-menjivar/super-stt-whisper/releases/download/v0.1.1/whisper-x86_64-unknown-linux-gnu-cuda12-sm90.tar.gz",
+            "size": 14140766,
+            "sha256": "c1b45126d7e6735cba4fb97140b46de2020c36416e631a08886941dae6a07efa"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "cuda_sm": 75,
+            "url": "https://github.com/jorge-menjivar/super-stt-whisper/releases/download/v0.1.1/whisper-x86_64-unknown-linux-gnu-cuda13-sm75.tar.gz",
+            "size": 14753332,
+            "sha256": "7c9622760e0c1d0af93d99518492eab813aae3dcb8913410eeb66239778c93d5"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "cuda_sm": 80,
+            "url": "https://github.com/jorge-menjivar/super-stt-whisper/releases/download/v0.1.1/whisper-x86_64-unknown-linux-gnu-cuda13-sm80.tar.gz",
+            "size": 14360972,
+            "sha256": "63caf2ae6cb47a10516fcfc0ecf3b0c55fdb686078e7e797a0eb1cba3ae8047f"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "cuda_sm": 86,
+            "url": "https://github.com/jorge-menjivar/super-stt-whisper/releases/download/v0.1.1/whisper-x86_64-unknown-linux-gnu-cuda13-sm86.tar.gz",
+            "size": 13766107,
+            "sha256": "b5a44803e487fb5c8e8eba2256e84a9e7c735db0ca43e0dff28f2b937d10dc71"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "cuda_sm": 89,
+            "url": "https://github.com/jorge-menjivar/super-stt-whisper/releases/download/v0.1.1/whisper-x86_64-unknown-linux-gnu-cuda13-sm89.tar.gz",
+            "size": 13743622,
+            "sha256": "f14ceca0eaacfbb4b7c69710fa848d71aa04f52cd26c9474066741bf832b27c3"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "cuda_sm": 90,
+            "url": "https://github.com/jorge-menjivar/super-stt-whisper/releases/download/v0.1.1/whisper-x86_64-unknown-linux-gnu-cuda13-sm90.tar.gz",
+            "size": 14263503,
+            "sha256": "7e748af24ac9891429bf77d592caed1d0543f1dc452bf1f5be4ea618bbc1dbd6"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "cuda_sm": 100,
+            "url": "https://github.com/jorge-menjivar/super-stt-whisper/releases/download/v0.1.1/whisper-x86_64-unknown-linux-gnu-cuda13-sm100.tar.gz",
+            "size": 16026344,
+            "sha256": "a03b9c39298d4feecfafbf1115afa857d4841aa28b4a306969519f2dbfe25902"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "cuda_sm": 120,
+            "url": "https://github.com/jorge-menjivar/super-stt-whisper/releases/download/v0.1.1/whisper-x86_64-unknown-linux-gnu-cuda13-sm120.tar.gz",
+            "size": 15978660,
+            "sha256": "4f72c8a8c9ff1bae6ac8c9eb20dc701b5de5b3149bdde768b25093470b2c2107"
+          },
+          {
+            "target": "aarch64-unknown-linux-gnu",
+            "accel": "cpu",
+            "url": "https://github.com/jorge-menjivar/super-stt-whisper/releases/download/v0.1.1/whisper-aarch64-unknown-linux-gnu-cpu.tar.gz",
+            "size": 2978654,
+            "sha256": "8228cdc582877f2d79920e239cb8810366b2bd68909560a4138e47d741fb785a"
+          }
+        ]
+      },
+      "manifest": {
+        "url": "https://github.com/jorge-menjivar/super-stt-whisper/releases/download/v0.1.1/backend.toml",
+        "size": 15401,
+        "sha256": "acdc6c4e816325b5b2957488b843b3c7af17d00933b37469584db13c9572e785"
+      }
+    }
+  ]
+}
