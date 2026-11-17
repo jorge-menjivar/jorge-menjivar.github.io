@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-17T06:10:22Z",
+  "generated_at": "2026-11-17T07:16:26Z",
   "min_client": "0.1.0",
   "backends": [
     {
@@ -22,7 +22,10 @@
       "online": true,
       "supports_gpu": false,
       "supports_cpu": false,
-      "accepts_context": true,
+      "supports": [
+        "online",
+        "dictation_context"
+      ],
       "models": [
         {
           "name": "nova-3",
@@ -31,7 +34,8 @@
             "none"
           ],
           "role": "transcription",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         }
       ],
       "secrets": [
@@ -72,7 +76,9 @@
       "online": false,
       "supports_gpu": false,
       "supports_cpu": true,
-      "accepts_context": false,
+      "supports": [
+        "cpu"
+      ],
       "models": [
         {
           "name": "kokoro-82m",
@@ -81,7 +87,8 @@
             "cpu"
           ],
           "role": "synthesis",
-          "accepts_context": false
+          "accepts_context": false,
+          "clones_voices": false
         }
       ],
       "secrets": [],
@@ -129,7 +136,11 @@
       "online": true,
       "supports_gpu": false,
       "supports_cpu": false,
-      "accepts_context": true,
+      "supports": [
+        "online",
+        "dictation_context",
+        "voice_cloning"
+      ],
       "models": [
         {
           "name": "voxtral-mini-transcribe-3",
@@ -138,7 +149,8 @@
             "none"
           ],
           "role": "transcription",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         },
         {
           "name": "voxtral-small-transcribe-3",
@@ -147,7 +159,8 @@
             "none"
           ],
           "role": "transcription",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         },
         {
           "name": "voxtral-mini-transcribe-realtime-3",
@@ -156,7 +169,8 @@
             "none"
           ],
           "role": "transcription",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         },
         {
           "name": "voxtral-mini-tts-3",
@@ -165,7 +179,8 @@
             "none"
           ],
           "role": "synthesis",
-          "accepts_context": false
+          "accepts_context": false,
+          "clones_voices": true
         }
       ],
       "secrets": [
@@ -208,7 +223,10 @@
       "online": true,
       "supports_gpu": false,
       "supports_cpu": false,
-      "accepts_context": true,
+      "supports": [
+        "online",
+        "dictation_context"
+      ],
       "models": [
         {
           "name": "whisper-1",
@@ -217,7 +235,8 @@
             "none"
           ],
           "role": "transcription",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         },
         {
           "name": "gpt-4o-transcribe",
@@ -226,7 +245,8 @@
             "none"
           ],
           "role": "transcription",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         },
         {
           "name": "gpt-4o-mini-transcribe",
@@ -235,7 +255,8 @@
             "none"
           ],
           "role": "transcription",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         },
         {
           "name": "other",
@@ -244,7 +265,8 @@
             "none"
           ],
           "role": "transcription",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         },
         {
           "name": "gpt-live-transcribe",
@@ -253,7 +275,8 @@
             "none"
           ],
           "role": "transcription",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         },
         {
           "name": "other-realtime",
@@ -262,7 +285,8 @@
             "none"
           ],
           "role": "transcription",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         }
       ],
       "secrets": [
@@ -314,7 +338,11 @@
       "online": false,
       "supports_gpu": true,
       "supports_cpu": true,
-      "accepts_context": true,
+      "supports": [
+        "gpu",
+        "cpu",
+        "dictation_context"
+      ],
       "models": [
         {
           "name": "qwen3-asr-0.6b",
@@ -324,7 +352,8 @@
             "gpu"
           ],
           "role": "transcription",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         },
         {
           "name": "qwen3-asr-1.7b",
@@ -334,7 +363,8 @@
             "gpu"
           ],
           "role": "transcription",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         }
       ],
       "secrets": [],
@@ -462,7 +492,10 @@
       "online": false,
       "supports_gpu": true,
       "supports_cpu": true,
-      "accepts_context": false,
+      "supports": [
+        "gpu",
+        "cpu"
+      ],
       "models": [
         {
           "name": "qwen3-asr-0.6b",
@@ -472,7 +505,8 @@
             "gpu"
           ],
           "role": "transcription",
-          "accepts_context": false
+          "accepts_context": false,
+          "clones_voices": false
         },
         {
           "name": "qwen3-asr-1.7b",
@@ -482,7 +516,8 @@
             "gpu"
           ],
           "role": "transcription",
-          "accepts_context": false
+          "accepts_context": false,
+          "clones_voices": false
         }
       ],
       "secrets": [],
@@ -538,7 +573,10 @@
       "online": false,
       "supports_gpu": true,
       "supports_cpu": false,
-      "accepts_context": false,
+      "supports": [
+        "gpu",
+        "voice_cloning"
+      ],
       "models": [
         {
           "name": "qwen3-tts-0.6b-custom-voice",
@@ -547,7 +585,8 @@
             "gpu"
           ],
           "role": "synthesis",
-          "accepts_context": false
+          "accepts_context": false,
+          "clones_voices": false
         },
         {
           "name": "qwen3-tts-1.7b-custom-voice",
@@ -556,7 +595,8 @@
             "gpu"
           ],
           "role": "synthesis",
-          "accepts_context": false
+          "accepts_context": false,
+          "clones_voices": false
         },
         {
           "name": "qwen3-tts-1.7b-voice-design",
@@ -565,7 +605,8 @@
             "gpu"
           ],
           "role": "synthesis",
-          "accepts_context": false
+          "accepts_context": false,
+          "clones_voices": false
         },
         {
           "name": "qwen3-tts-0.6b-base",
@@ -574,7 +615,8 @@
             "gpu"
           ],
           "role": "synthesis",
-          "accepts_context": false
+          "accepts_context": false,
+          "clones_voices": true
         },
         {
           "name": "qwen3-tts-1.7b-base",
@@ -583,7 +625,8 @@
             "gpu"
           ],
           "role": "synthesis",
-          "accepts_context": false
+          "accepts_context": false,
+          "clones_voices": true
         }
       ],
       "secrets": [],
@@ -675,7 +718,11 @@
       "online": false,
       "supports_gpu": true,
       "supports_cpu": true,
-      "accepts_context": true,
+      "supports": [
+        "gpu",
+        "cpu",
+        "dictation_context"
+      ],
       "models": [
         {
           "name": "s1-mini-q4_k_m",
@@ -685,7 +732,8 @@
             "gpu"
           ],
           "role": "post_processor",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         }
       ],
       "secrets": [],
@@ -810,7 +858,10 @@
       "online": false,
       "supports_gpu": false,
       "supports_cpu": true,
-      "accepts_context": true,
+      "supports": [
+        "cpu",
+        "dictation_context"
+      ],
       "models": [
         {
           "name": "rules-v1",
@@ -819,7 +870,8 @@
             "cpu"
           ],
           "role": "post_processor",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         }
       ],
       "secrets": [],
@@ -897,7 +949,10 @@
       "online": false,
       "supports_gpu": true,
       "supports_cpu": false,
-      "accepts_context": true,
+      "supports": [
+        "gpu",
+        "dictation_context"
+      ],
       "models": [
         {
           "name": "voxtral-mini-3b-2507",
@@ -906,7 +961,8 @@
             "gpu"
           ],
           "role": "transcription",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         },
         {
           "name": "voxtral-small-24b-2507",
@@ -915,7 +971,8 @@
             "gpu"
           ],
           "role": "transcription",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         }
       ],
       "secrets": [],
@@ -1000,7 +1057,11 @@
       "online": false,
       "supports_gpu": true,
       "supports_cpu": true,
-      "accepts_context": true,
+      "supports": [
+        "gpu",
+        "cpu",
+        "dictation_context"
+      ],
       "models": [
         {
           "name": "whisper-tiny",
@@ -1010,7 +1071,8 @@
             "gpu"
           ],
           "role": "transcription",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         },
         {
           "name": "whisper-tiny.en",
@@ -1020,7 +1082,8 @@
             "gpu"
           ],
           "role": "transcription",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         },
         {
           "name": "whisper-base",
@@ -1030,7 +1093,8 @@
             "gpu"
           ],
           "role": "transcription",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         },
         {
           "name": "whisper-base.en",
@@ -1040,7 +1104,8 @@
             "gpu"
           ],
           "role": "transcription",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         },
         {
           "name": "whisper-small",
@@ -1050,7 +1115,8 @@
             "gpu"
           ],
           "role": "transcription",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         },
         {
           "name": "whisper-small.en",
@@ -1060,7 +1126,8 @@
             "gpu"
           ],
           "role": "transcription",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         },
         {
           "name": "whisper-medium",
@@ -1070,7 +1137,8 @@
             "gpu"
           ],
           "role": "transcription",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         },
         {
           "name": "whisper-medium.en",
@@ -1080,7 +1148,8 @@
             "gpu"
           ],
           "role": "transcription",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         },
         {
           "name": "whisper-large",
@@ -1090,7 +1159,8 @@
             "gpu"
           ],
           "role": "transcription",
-          "accepts_context": true
+          "accepts_context": true,
+          "clones_voices": false
         }
       ],
       "secrets": [],
