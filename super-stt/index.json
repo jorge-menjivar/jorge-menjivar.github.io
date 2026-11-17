@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-17T00:13:48Z",
+  "generated_at": "2026-11-17T06:10:22Z",
   "min_client": "0.1.0",
   "backends": [
     {
@@ -22,6 +22,7 @@
       "online": true,
       "supports_gpu": false,
       "supports_cpu": false,
+      "accepts_context": true,
       "models": [
         {
           "name": "nova-3",
@@ -71,6 +72,7 @@
       "online": false,
       "supports_gpu": false,
       "supports_cpu": true,
+      "accepts_context": false,
       "models": [
         {
           "name": "kokoro-82m",
@@ -127,6 +129,7 @@
       "online": true,
       "supports_gpu": false,
       "supports_cpu": false,
+      "accepts_context": true,
       "models": [
         {
           "name": "voxtral-mini-transcribe-3",
@@ -205,6 +208,7 @@
       "online": true,
       "supports_gpu": false,
       "supports_cpu": false,
+      "accepts_context": true,
       "models": [
         {
           "name": "whisper-1",
@@ -310,6 +314,7 @@
       "online": false,
       "supports_gpu": true,
       "supports_cpu": true,
+      "accepts_context": true,
       "models": [
         {
           "name": "qwen3-asr-0.6b",
@@ -457,6 +462,7 @@
       "online": false,
       "supports_gpu": true,
       "supports_cpu": true,
+      "accepts_context": false,
       "models": [
         {
           "name": "qwen3-asr-0.6b",
@@ -532,6 +538,7 @@
       "online": false,
       "supports_gpu": true,
       "supports_cpu": false,
+      "accepts_context": false,
       "models": [
         {
           "name": "qwen3-tts-0.6b-custom-voice",
@@ -668,6 +675,7 @@
       "online": false,
       "supports_gpu": true,
       "supports_cpu": true,
+      "accepts_context": true,
       "models": [
         {
           "name": "s1-mini-q4_k_m",
@@ -802,6 +810,7 @@
       "online": false,
       "supports_gpu": false,
       "supports_cpu": true,
+      "accepts_context": true,
       "models": [
         {
           "name": "rules-v1",
@@ -888,6 +897,7 @@
       "online": false,
       "supports_gpu": true,
       "supports_cpu": false,
+      "accepts_context": true,
       "models": [
         {
           "name": "voxtral-mini-3b-2507",
@@ -990,6 +1000,7 @@
       "online": false,
       "supports_gpu": true,
       "supports_cpu": true,
+      "accepts_context": true,
       "models": [
         {
           "name": "whisper-tiny",

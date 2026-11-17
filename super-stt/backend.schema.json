@@ -541,7 +541,7 @@
       "properties": {
         "context": {
           "default": false,
-          "description": "Opt into being handed the user's dictation context: an `x-voice-prompt`\nheader and an `x-voice-vocabulary` header, on every `/v1` request to a\nspeech-to-text model. Default `false`, which means neither header is\nsent.\n\nUnlike `websocket` this is not transport-restricted, and the deviation\nis deliberate: both headers ride the ordinary request every backend\nalready receives, so a `subprocess` backend can use them exactly as a\n`wasm` one does. The flag exists to keep the headers off backends that\nwould not know what to do with them, not to gate a transport.\n\nDeclared per backend rather than per model, because it describes what\nthe code reading the request does, and that code is the backend's.",
+          "description": "Deprecated: say it on each model instead, with `[[models]]\naccepts_context`. Read as that field set on every speech-to-text model\nof the backend, so a backend declaring it keeps its context until it\nmoves. Removed once no published backend declares it.\n\nOpted a whole backend into being handed the user's dictation context.\nBut whether a model can use one is the model's: an upstream API may\ntake a prompt for one of its models and not another, and a backend\ndeclaring this for all of them had to claim it for each.",
           "type": "boolean"
         },
         "streaming_input": {
@@ -795,6 +795,11 @@
       "additionalProperties": false,
       "description": "One `[[models]]` entry. Each model is identified on the wire by\n`(name, source)`, where `source` is `[backend].source`.",
       "properties": {
+        "accepts_context": {
+          "default": false,
+          "description": "Speech to text: hand this model the user's dictation context, an\n`x-voice-prompt` header and an `x-voice-vocabulary` header on every\n`/v1` request for it. Default `false`, which means neither header is\nsent.\n\nSaid per model, because whether a context is used is the model's: an\nupstream API may take a prompt for one of its models and not another.\nSet it only on a model that reads the headers: a settings UI uses it to\ntell the user which models will hear a vocabulary they typed.\n\nNot transport-restricted: both headers ride the ordinary request every\nbackend already receives, so a `subprocess` backend reads them exactly\nas a `wasm` one does.\n\nNot tied to a contract generation, like the `[capabilities] context`\nit replaces: a daemon that does not know the field sends no context,\nwhich is all a daemon from before contexts could do anyway.",
+          "type": "boolean"
+        },
         "clone_needs_transcript": {
           "default": false,
           "description": "Text to speech: whether registering a cloned voice requires the\nreference clip's transcript as well as its audio. Default `false`.\n\nIn-context cloning conditions on the reference audio *and* the tokens\nof what it says, so a backend taking that path cannot build a voice\nfrom audio alone; speaker-embedding cloning needs no transcript and\nleaves this unset. The daemon refuses to register a transcript-less\nclip against a model that declares it, which turns a synthesis failure\non every later request into one refusal at the point the voice is\nadded. Only meaningful alongside `cloned` in `voice_kinds`.",
