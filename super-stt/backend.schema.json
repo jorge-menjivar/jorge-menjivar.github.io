@@ -802,7 +802,7 @@
         },
         "clone_needs_transcript": {
           "default": false,
-          "description": "Text to speech: whether registering a cloned voice requires the\nreference clip's transcript as well as its audio. Default `false`.\n\nIn-context cloning conditions on the reference audio *and* the tokens\nof what it says, so a backend taking that path cannot build a voice\nfrom audio alone; speaker-embedding cloning needs no transcript and\nleaves this unset. The daemon refuses to register a transcript-less\nclip against a model that declares it, which turns a synthesis failure\non every later request into one refusal at the point the voice is\nadded. Only meaningful alongside `cloned` in `voice_kinds`.",
+          "description": "Text to speech: whether registering a cloned voice requires the\nreference recording's transcript as well as its audio. Default `false`.\n\nIn-context cloning conditions on the reference audio *and* the tokens\nof what it says, so a backend taking that path cannot build a voice\nfrom audio alone; speaker-embedding cloning needs no transcript and\nleaves this unset. The daemon refuses to register a transcript-less\nrecording against a model that declares it, which turns a synthesis failure\non every later request into one refusal at the point the voice is\nadded. Only meaningful alongside `cloned` in `voice_kinds`.",
           "type": "boolean"
         },
         "clone_ref_seconds": {
