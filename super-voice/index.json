@@ -1,0 +1,1337 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-20T06:09:32Z",
+  "min_client": "0.1.0",
+  "backends": [
+    {
+      "id": "deepgram",
+      "backend_id": "app.super-voice.deepgram",
+      "source": "github.com/jorge-menjivar/super-stt-deepgram",
+      "version": "0.2.1",
+      "tag": "v0.2.1",
+      "name": "Deepgram",
+      "description": "Cloud speech-to-text via the Deepgram API.",
+      "license": "GPL-3.0-only",
+      "kind": "wasm",
+      "contract": "v1",
+      "min_client": "0.2.0",
+      "entrypoint": "deepgram.wasm",
+      "allowed_hosts": [
+        "api.deepgram.com"
+      ],
+      "online": true,
+      "supports_gpu": false,
+      "supports_cpu": false,
+      "supports": [
+        "online",
+        "dictation_context"
+      ],
+      "models": [
+        {
+          "name": "nova-3",
+          "provider": "",
+          "supported_devices": [
+            "none"
+          ],
+          "role": "transcription",
+          "accepts_context": true,
+          "clones_voices": false
+        }
+      ],
+      "secrets": [
+        {
+          "name": "deepgram_api_key",
+          "label": "Deepgram API key",
+          "required": true
+        }
+      ],
+      "options": [],
+      "assets": {
+        "wasm": {
+          "url": "https://github.com/super-libre/super-voice-deepgram/releases/download/v0.2.1/deepgram.wasm",
+          "size": 281616,
+          "sha256": "2aed1952db92542ec66434448cc1cabaa1b6f27e81046e36b42f8043a67f8ee2"
+        }
+      },
+      "manifest": {
+        "url": "https://github.com/super-libre/super-voice-deepgram/releases/download/v0.2.1/backend.toml",
+        "size": 2853,
+        "sha256": "207ba8fbf973962448aeeeda26182b3475290940af52d8c8989b176ba8a25e0d"
+      }
+    },
+    {
+      "id": "kokoro",
+      "backend_id": "app.super-voice.kokoro",
+      "source": "github.com/super-libre/super-voice-kokoro",
+      "version": "0.1.0",
+      "tag": "v0.1.0",
+      "name": "Kokoro",
+      "description": "Kokoro-82M local text-to-speech, 24 kHz, 54 preset voices.",
+      "license": "GPL-3.0-only",
+      "kind": "subprocess",
+      "contract": "v4",
+      "min_client": "0.3.0",
+      "entrypoint": "super-voice-backend-kokoro",
+      "allowed_hosts": [],
+      "online": false,
+      "supports_gpu": false,
+      "supports_cpu": true,
+      "supports": [
+        "cpu"
+      ],
+      "models": [
+        {
+          "name": "kokoro-82m",
+          "provider": "",
+          "supported_devices": [
+            "cpu"
+          ],
+          "role": "synthesis",
+          "accepts_context": false,
+          "clones_voices": false
+        }
+      ],
+      "secrets": [],
+      "options": [],
+      "assets": {
+        "subprocess": [
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cpu",
+            "url": "https://github.com/super-libre/super-voice-kokoro/releases/download/v0.1.0/kokoro-x86_64-unknown-linux-gnu-cpu.tar.gz",
+            "size": 20599871,
+            "sha256": "0e8c32a30168440392609341061d4da4be74ed5e4cc5b915dcd4e75c20d5bc44"
+          },
+          {
+            "target": "aarch64-unknown-linux-gnu",
+            "accel": "cpu",
+            "url": "https://github.com/super-libre/super-voice-kokoro/releases/download/v0.1.0/kokoro-aarch64-unknown-linux-gnu-cpu.tar.gz",
+            "size": 21547952,
+            "sha256": "9af4ec8072b334567af45091532b3e3c532c88baa4d2e7877a39354de24b1c4a"
+          }
+        ]
+      },
+      "manifest": {
+        "url": "https://github.com/super-libre/super-voice-kokoro/releases/download/v0.1.0/backend.toml",
+        "size": 25170,
+        "sha256": "a7536232a3b1d917d35af822f56f3bb61d7fbcadc05e418be30d87c0632990e6"
+      }
+    },
+    {
+      "id": "mistral",
+      "backend_id": "app.super-voice.mistral",
+      "source": "github.com/jorge-menjivar/super-stt-mistral",
+      "version": "0.3.1",
+      "tag": "v0.3.1",
+      "name": "Mistral",
+      "description": "Cloud speech-to-text and text-to-speech via the Mistral (Voxtral) API.",
+      "license": "GPL-3.0-only",
+      "kind": "wasm",
+      "contract": "v4",
+      "min_client": "0.3.0",
+      "entrypoint": "mistral.wasm",
+      "allowed_hosts": [
+        "api.mistral.ai"
+      ],
+      "online": true,
+      "supports_gpu": false,
+      "supports_cpu": false,
+      "supports": [
+        "online",
+        "dictation_context",
+        "voice_cloning"
+      ],
+      "models": [
+        {
+          "name": "voxtral-mini-transcribe-3",
+          "provider": "",
+          "supported_devices": [
+            "none"
+          ],
+          "role": "transcription",
+          "accepts_context": true,
+          "clones_voices": false
+        },
+        {
+          "name": "voxtral-small-transcribe-3",
+          "provider": "",
+          "supported_devices": [
+            "none"
+          ],
+          "role": "transcription",
+          "accepts_context": true,
+          "clones_voices": false
+        },
+        {
+          "name": "voxtral-mini-transcribe-realtime-3",
+          "provider": "",
+          "supported_devices": [
+            "none"
+          ],
+          "role": "transcription",
+          "accepts_context": true,
+          "clones_voices": false
+        },
+        {
+          "name": "voxtral-mini-tts-3",
+          "provider": "",
+          "supported_devices": [
+            "none"
+          ],
+          "role": "synthesis",
+          "accepts_context": false,
+          "clones_voices": true
+        }
+      ],
+      "secrets": [
+        {
+          "name": "mistral_api_key",
+          "label": "Mistral API key",
+          "required": true
+        }
+      ],
+      "options": [],
+      "assets": {
+        "wasm": {
+          "url": "https://github.com/super-libre/super-voice-mistral/releases/download/v0.3.1/mistral.wasm",
+          "size": 435398,
+          "sha256": "7c8803d9874fe2e6b520ec27b49ee66e4cfb026bbafdf6f1d929473c7248472e"
+        }
+      },
+      "manifest": {
+        "url": "https://github.com/super-libre/super-voice-mistral/releases/download/v0.3.1/backend.toml",
+        "size": 10056,
+        "sha256": "8985f098a405379e319f3882b49227f91eea1b2c97777c016c48fd44b8d4ed35"
+      }
+    },
+    {
+      "id": "openai",
+      "backend_id": "app.super-voice.openai",
+      "source": "github.com/jorge-menjivar/super-stt-openai",
+      "version": "0.2.1",
+      "tag": "v0.2.1",
+      "name": "OpenAI",
+      "description": "Cloud speech-to-text via the OpenAI API.",
+      "license": "GPL-3.0-only",
+      "kind": "wasm",
+      "contract": "v2",
+      "min_client": "0.2.4-beta.1",
+      "entrypoint": "openai.wasm",
+      "allowed_hosts": [
+        "api.openai.com"
+      ],
+      "online": true,
+      "supports_gpu": false,
+      "supports_cpu": false,
+      "supports": [
+        "online",
+        "dictation_context"
+      ],
+      "models": [
+        {
+          "name": "whisper-1",
+          "provider": "",
+          "supported_devices": [
+            "none"
+          ],
+          "role": "transcription",
+          "accepts_context": true,
+          "clones_voices": false
+        },
+        {
+          "name": "gpt-4o-transcribe",
+          "provider": "",
+          "supported_devices": [
+            "none"
+          ],
+          "role": "transcription",
+          "accepts_context": true,
+          "clones_voices": false
+        },
+        {
+          "name": "gpt-4o-mini-transcribe",
+          "provider": "",
+          "supported_devices": [
+            "none"
+          ],
+          "role": "transcription",
+          "accepts_context": true,
+          "clones_voices": false
+        },
+        {
+          "name": "other",
+          "provider": "",
+          "supported_devices": [
+            "none"
+          ],
+          "role": "transcription",
+          "accepts_context": true,
+          "clones_voices": false
+        },
+        {
+          "name": "gpt-live-transcribe",
+          "provider": "",
+          "supported_devices": [
+            "none"
+          ],
+          "role": "transcription",
+          "accepts_context": true,
+          "clones_voices": false
+        },
+        {
+          "name": "other-realtime",
+          "provider": "",
+          "supported_devices": [
+            "none"
+          ],
+          "role": "transcription",
+          "accepts_context": true,
+          "clones_voices": false
+        }
+      ],
+      "secrets": [
+        {
+          "name": "openai_api_key",
+          "label": "OpenAI API key",
+          "required": false
+        }
+      ],
+      "options": [
+        {
+          "name": "base_url",
+          "label": "API base URL",
+          "type": "string"
+        },
+        {
+          "name": "custom_model",
+          "label": "Custom model name",
+          "type": "string"
+        }
+      ],
+      "assets": {
+        "wasm": {
+          "url": "https://github.com/super-libre/super-voice-openai/releases/download/v0.2.1/openai.wasm",
+          "size": 386917,
+          "sha256": "37b9c1b5a49e7f4a57e9fa4ed6c24783a3eaa70e22e0a7be41524f9d9799c490"
+        }
+      },
+      "manifest": {
+        "url": "https://github.com/super-libre/super-voice-openai/releases/download/v0.2.1/backend.toml",
+        "size": 8618,
+        "sha256": "64515fd6a10935d2e1378c3334e8ce92c073e8cc6c2b2d5e50246123a454a0c8"
+      }
+    },
+    {
+      "id": "qwen",
+      "backend_id": "app.super-voice.qwen-asr",
+      "source": "github.com/super-libre/super-stt-qwen",
+      "version": "0.1.3",
+      "tag": "v0.1.3",
+      "name": "Qwen ASR",
+      "description": "Local Qwen3-ASR speech-to-text.",
+      "license": "GPL-3.0-only",
+      "kind": "subprocess",
+      "contract": "v4",
+      "min_client": "0.3.0",
+      "entrypoint": "super-voice-backend-qwen-asr",
+      "allowed_hosts": [],
+      "online": false,
+      "supports_gpu": true,
+      "supports_cpu": true,
+      "supports": [
+        "gpu",
+        "cpu",
+        "dictation_context"
+      ],
+      "models": [
+        {
+          "name": "qwen3-asr-0.6b",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription",
+          "accepts_context": true,
+          "clones_voices": false
+        },
+        {
+          "name": "qwen3-asr-1.7b",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription",
+          "accepts_context": true,
+          "clones_voices": false
+        }
+      ],
+      "secrets": [],
+      "options": [],
+      "assets": {
+        "subprocess": [
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cpu",
+            "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.3/qwen3-asr-x86_64-unknown-linux-gnu-cpu.tar.gz",
+            "size": 15485214,
+            "sha256": "586a584862082fd61533f979f9adb97a547b74277c3dedc016e6b815b1d7a626"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 12,
+            "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.3/qwen3-asr-x86_64-unknown-linux-gnu-cuda12.tar.gz",
+            "size": 56604599,
+            "sha256": "9e5f0a2f5594e29f8697d8ed247c01b998fc73923a9364ff73a36faff5997e64"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.3/qwen3-asr-x86_64-unknown-linux-gnu-cuda13.tar.gz",
+            "size": 56604008,
+            "sha256": "08c5dc118cb03811bc0cc19ca1b2a0f909818932c7fb9bf1a447b6669489999b"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "rocm",
+            "gfx": [
+              "gfx908",
+              "gfx90a",
+              "gfx942",
+              "gfx1013",
+              "gfx1030",
+              "gfx1100",
+              "gfx1101",
+              "gfx1102",
+              "gfx1150",
+              "gfx1151",
+              "gfx1152",
+              "gfx1200",
+              "gfx1201"
+            ],
+            "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.3/qwen3-asr-x86_64-unknown-linux-gnu-rocm.tar.gz",
+            "size": 64797117,
+            "sha256": "9f5a1cdc5cd8c8cf6c2f463c3ff3171c718c8cae54be3def32ccf7431a167fc4"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "vulkan",
+            "vulkan_api": "1.2",
+            "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.3/qwen3-asr-x86_64-unknown-linux-gnu-vulkan.tar.gz",
+            "size": 33315659,
+            "sha256": "aad14f728e7df8237ce9eb7c1a7a6f36dffa04bb8b3c6e5dedd6aacee0b114b2"
+          },
+          {
+            "target": "aarch64-unknown-linux-gnu",
+            "accel": "cpu",
+            "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.3/qwen3-asr-aarch64-unknown-linux-gnu-cpu.tar.gz",
+            "size": 15485923,
+            "sha256": "ea20a70e9b91337708583b2846dfd29b2ae2121ec823cce13cae3302874b7e3c"
+          },
+          {
+            "target": "aarch64-unknown-linux-gnu",
+            "accel": "vulkan",
+            "vulkan_api": "1.2",
+            "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.3/qwen3-asr-aarch64-unknown-linux-gnu-vulkan.tar.gz",
+            "size": 37699986,
+            "sha256": "f12780bc6dcff838c9a91cc9864f84ff0d05b6ea0803ba6639ec65d2f3dea59b"
+          },
+          {
+            "target": "aarch64-apple-darwin",
+            "accel": "metal",
+            "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.3/qwen3-asr-aarch64-apple-darwin-metal.tar.gz",
+            "size": 27853552,
+            "sha256": "a61f1e061f3fbf357261782dc6940e0c14dde5ea05acac6a27b5122d9e12e179"
+          },
+          {
+            "target": "aarch64-apple-darwin",
+            "accel": "cpu",
+            "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.3/qwen3-asr-aarch64-apple-darwin-cpu.tar.gz",
+            "size": 13372245,
+            "sha256": "033360c463eb952ab69e7351d27bafd6ae0cacb5253cad1fbb0990d6befe7b97"
+          },
+          {
+            "target": "x86_64-apple-darwin",
+            "accel": "metal",
+            "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.3/qwen3-asr-x86_64-apple-darwin-metal.tar.gz",
+            "size": 29051186,
+            "sha256": "87600b06b5b34f33d59211c01ab211296182bbf2cd471f62e7322c0cd367b0f5"
+          },
+          {
+            "target": "x86_64-apple-darwin",
+            "accel": "cpu",
+            "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.3/qwen3-asr-x86_64-apple-darwin-cpu.tar.gz",
+            "size": 14399866,
+            "sha256": "04c41cb1c8ecdcb3781f43cd92e2f217086a04437b0673a0aba22b7dc4fccb29"
+          }
+        ]
+      },
+      "manifest": {
+        "url": "https://github.com/super-libre/super-voice-qwen-asr/releases/download/v0.1.3/backend.toml",
+        "size": 9866,
+        "sha256": "b15ee39d7b5e9564d0273ec6a36f56a8e830a517c7f07f247445be79b8b25bc2"
+      }
+    },
+    {
+      "id": "qwen3_asr",
+      "backend_id": "app.super-stt.qwen-transformers",
+      "source": "github.com/jorge-menjivar/super-stt-qwen-asr",
+      "version": "0.1.1",
+      "tag": "v0.1.1",
+      "name": "Qwen3-ASR",
+      "description": "Local Qwen3-ASR speech-to-text on PyTorch and transformers: CUDA or CPU.",
+      "license": "GPL-3.0-only",
+      "kind": "subprocess",
+      "contract": "v3",
+      "min_client": "0.3.0",
+      "entrypoint": "bin/qwen3-asr",
+      "allowed_hosts": [],
+      "online": false,
+      "supports_gpu": true,
+      "supports_cpu": true,
+      "supports": [
+        "gpu",
+        "cpu"
+      ],
+      "models": [
+        {
+          "name": "qwen3-asr-0.6b",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription",
+          "accepts_context": false,
+          "clones_voices": false
+        },
+        {
+          "name": "qwen3-asr-1.7b",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription",
+          "accepts_context": false,
+          "clones_voices": false
+        }
+      ],
+      "secrets": [],
+      "options": [],
+      "assets": {
+        "subprocess": [
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cpu",
+            "url": "https://github.com/jorge-menjivar/super-stt-qwen-asr/releases/download/v0.1.1/qwen3-asr-x86_64-unknown-linux-gnu-cpu.tar.gz",
+            "size": 455865212,
+            "sha256": "8ba6fbc80eb73889bf76dbe4cebed5c5f3eb81020688a64573d632cc123a9fca"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "parts": [
+              {
+                "url": "https://github.com/jorge-menjivar/super-stt-qwen-asr/releases/download/v0.1.1/qwen3-asr-x86_64-unknown-linux-gnu-cuda13.tar.gz.part00",
+                "size": 2097152000,
+                "sha256": "9566bce1af34b85da9761cc28e30a9a8f6cf6e77c5cd557dadd5722f33f20eae"
+              },
+              {
+                "url": "https://github.com/jorge-menjivar/super-stt-qwen-asr/releases/download/v0.1.1/qwen3-asr-x86_64-unknown-linux-gnu-cuda13.tar.gz.part01",
+                "size": 1189414667,
+                "sha256": "5f02da3c8f2cc4d7a9ce01fb87c1645f21b76ee5f85d696c145d3f2ceb771cbc"
+              }
+            ]
+          }
+        ]
+      },
+      "manifest": {
+        "url": "https://github.com/jorge-menjivar/super-stt-qwen-asr/releases/download/v0.1.1/backend.toml",
+        "size": 5547,
+        "sha256": "375d47c484ed8a17764aba7e6df328ef7eec6419d25bf3f783b21f6677f6f8bf"
+      }
+    },
+    {
+      "id": "qwen_tts",
+      "backend_id": "app.super-voice.qwen-tts",
+      "source": "github.com/super-libre/super-voice-qwen-tts",
+      "version": "0.1.0",
+      "tag": "v0.1.0",
+      "name": "Qwen TTS",
+      "description": "Qwen local text-to-speech, 24 kHz, 10 languages. Serves the Qwen3-TTS checkpoints: nine preset voices, or a voice built from a description.",
+      "license": "GPL-3.0-only",
+      "kind": "subprocess",
+      "contract": "v4",
+      "min_client": "0.3.0",
+      "entrypoint": "super-voice-backend-qwen-tts",
+      "allowed_hosts": [],
+      "online": false,
+      "supports_gpu": true,
+      "supports_cpu": false,
+      "supports": [
+        "gpu",
+        "voice_cloning"
+      ],
+      "models": [
+        {
+          "name": "qwen3-tts-0.6b-custom-voice",
+          "provider": "",
+          "supported_devices": [
+            "gpu"
+          ],
+          "role": "synthesis",
+          "accepts_context": false,
+          "clones_voices": false
+        },
+        {
+          "name": "qwen3-tts-1.7b-custom-voice",
+          "provider": "",
+          "supported_devices": [
+            "gpu"
+          ],
+          "role": "synthesis",
+          "accepts_context": false,
+          "clones_voices": false
+        },
+        {
+          "name": "qwen3-tts-1.7b-voice-design",
+          "provider": "",
+          "supported_devices": [
+            "gpu"
+          ],
+          "role": "synthesis",
+          "accepts_context": false,
+          "clones_voices": false
+        },
+        {
+          "name": "qwen3-tts-0.6b-base",
+          "provider": "",
+          "supported_devices": [
+            "gpu"
+          ],
+          "role": "synthesis",
+          "accepts_context": false,
+          "clones_voices": true
+        },
+        {
+          "name": "qwen3-tts-1.7b-base",
+          "provider": "",
+          "supported_devices": [
+            "gpu"
+          ],
+          "role": "synthesis",
+          "accepts_context": false,
+          "clones_voices": true
+        }
+      ],
+      "secrets": [],
+      "options": [
+        {
+          "name": "voice_design_description",
+          "label": "Custom voice description",
+          "type": "string"
+        },
+        {
+          "name": "temperature",
+          "label": "Temperature",
+          "type": "float",
+          "default": 0.9
+        }
+      ],
+      "assets": {
+        "subprocess": [
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 12,
+            "url": "https://github.com/super-libre/super-voice-qwen-tts/releases/download/v0.1.0/qwen-x86_64-unknown-linux-gnu-cuda12.tar.gz",
+            "size": 56236208,
+            "sha256": "3ff0bc61e9ed6e9df03b46969be6e2ae298e110c6e3ca0560d9352d957af8be7"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "url": "https://github.com/super-libre/super-voice-qwen-tts/releases/download/v0.1.0/qwen-x86_64-unknown-linux-gnu-cuda13.tar.gz",
+            "size": 56236404,
+            "sha256": "a9ebe043e680da2a4392806f4d0c75179f886c8b45ffb1bcfb51aab1013b2472"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "rocm",
+            "gfx": [
+              "gfx90a",
+              "gfx942",
+              "gfx1030",
+              "gfx1100",
+              "gfx1101",
+              "gfx1102",
+              "gfx1200",
+              "gfx1201"
+            ],
+            "url": "https://github.com/super-libre/super-voice-qwen-tts/releases/download/v0.1.0/qwen-x86_64-unknown-linux-gnu-rocm.tar.gz",
+            "size": 64421810,
+            "sha256": "1c54206823451f29190629bfcf8e83299ba38834a7a8bde6155471ba0e2e01b1"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "vulkan",
+            "vulkan_api": "1.2",
+            "url": "https://github.com/super-libre/super-voice-qwen-tts/releases/download/v0.1.0/qwen-x86_64-unknown-linux-gnu-vulkan.tar.gz",
+            "size": 32929570,
+            "sha256": "e9869307ec2a593e2bdf63e542da6d2863cb8b2978066be3c4ddd3738d80bd17"
+          },
+          {
+            "target": "aarch64-apple-darwin",
+            "accel": "metal",
+            "url": "https://github.com/super-libre/super-voice-qwen-tts/releases/download/v0.1.0/qwen-aarch64-apple-darwin-metal.tar.gz",
+            "size": 27666460,
+            "sha256": "cd8b33d4f5a461790ea38ad5cf08534aee6b61d1534264eb0f5825e4551b55a4"
+          }
+        ]
+      },
+      "manifest": {
+        "url": "https://github.com/super-libre/super-voice-qwen-tts/releases/download/v0.1.0/backend.toml",
+        "size": 26432,
+        "sha256": "8df34164a58faa04ffa78c526746062768f4c97af032d01dc207f4a4a6a02204"
+      }
+    },
+    {
+      "id": "s1_mini",
+      "backend_id": "app.super-voice.s1-mini",
+      "source": "github.com/jorge-menjivar/super-stt-s1-mini",
+      "version": "0.2.2",
+      "tag": "v0.2.2",
+      "name": "S1-mini",
+      "description": "S1-mini by Superwhisper, a small local model that cleans up dictated text. Removes fillers, resolves corrections, fixes punctuation and casing, and writes out numbers and dates. English only.",
+      "license": "GPL-3.0-only",
+      "kind": "subprocess",
+      "contract": "v4",
+      "min_client": "0.3.0",
+      "entrypoint": "super-voice-backend-s1-mini",
+      "allowed_hosts": [],
+      "online": false,
+      "supports_gpu": true,
+      "supports_cpu": true,
+      "supports": [
+        "gpu",
+        "cpu",
+        "dictation_context"
+      ],
+      "models": [
+        {
+          "name": "s1-mini-q4_k_m",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "post_processor",
+          "accepts_context": true,
+          "clones_voices": false
+        }
+      ],
+      "secrets": [],
+      "options": [
+        {
+          "name": "styling",
+          "label": "Styling",
+          "type": "string",
+          "default": "semi-formal"
+        },
+        {
+          "name": "structure",
+          "label": "Structure",
+          "type": "string",
+          "default": "prose"
+        },
+        {
+          "name": "context",
+          "label": "Context",
+          "type": "string",
+          "default": "general"
+        }
+      ],
+      "assets": {
+        "subprocess": [
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cpu",
+            "url": "https://github.com/super-libre/super-voice-s1-mini/releases/download/v0.2.2/s1-mini-x86_64-unknown-linux-gnu-cpu.tar.gz",
+            "size": 14656978,
+            "sha256": "033d6482765707e3959d5c7cc5b8cd254ba66205243220a1f10669203bd533ff"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 12,
+            "url": "https://github.com/super-libre/super-voice-s1-mini/releases/download/v0.2.2/s1-mini-x86_64-unknown-linux-gnu-cuda12.tar.gz",
+            "size": 54604155,
+            "sha256": "82785ceec368356498d6a1415d648ce56addf0e250bdabbdd92753907a28f461"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "url": "https://github.com/super-libre/super-voice-s1-mini/releases/download/v0.2.2/s1-mini-x86_64-unknown-linux-gnu-cuda13.tar.gz",
+            "size": 54603246,
+            "sha256": "1c3d3b43da4af93d2c227b5f79abc2be44cd3f5c33dbd3693043e5f21fb2ede0"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "rocm",
+            "gfx": [
+              "gfx908",
+              "gfx90a",
+              "gfx942",
+              "gfx1013",
+              "gfx1030",
+              "gfx1100",
+              "gfx1101",
+              "gfx1102",
+              "gfx1150",
+              "gfx1151",
+              "gfx1152",
+              "gfx1200",
+              "gfx1201"
+            ],
+            "url": "https://github.com/super-libre/super-voice-s1-mini/releases/download/v0.2.2/s1-mini-x86_64-unknown-linux-gnu-rocm.tar.gz",
+            "size": 62798238,
+            "sha256": "d6cc939c5f28c75d271a101b80c08753f0203d745c61136bd70ab539964bd800"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "vulkan",
+            "vulkan_api": "1.2",
+            "url": "https://github.com/super-libre/super-voice-s1-mini/releases/download/v0.2.2/s1-mini-x86_64-unknown-linux-gnu-vulkan.tar.gz",
+            "size": 31318050,
+            "sha256": "38de7ab023bae529c8156f2c6d61dfa8a09ff2de4c8352755fa477fccd69b9bb"
+          },
+          {
+            "target": "aarch64-unknown-linux-gnu",
+            "accel": "cpu",
+            "url": "https://github.com/super-libre/super-voice-s1-mini/releases/download/v0.2.2/s1-mini-aarch64-unknown-linux-gnu-cpu.tar.gz",
+            "size": 14785859,
+            "sha256": "ac5d576dd9d4da21fd60769ed523c9ae67c887267698ae5bcf75bf08a255c804"
+          },
+          {
+            "target": "aarch64-apple-darwin",
+            "accel": "metal",
+            "url": "https://github.com/super-libre/super-voice-s1-mini/releases/download/v0.2.2/s1-mini-aarch64-apple-darwin-metal.tar.gz",
+            "size": 26035667,
+            "sha256": "5ea7caba5c33028c3082af4103ace3b94b0625cf7016d6362a2186d80a01a460"
+          },
+          {
+            "target": "aarch64-apple-darwin",
+            "accel": "cpu",
+            "url": "https://github.com/super-libre/super-voice-s1-mini/releases/download/v0.2.2/s1-mini-aarch64-apple-darwin-cpu.tar.gz",
+            "size": 12759616,
+            "sha256": "fa4dda33851cd06f24078ff4d26d34a49da7774407fdb152a42bdafc0386577f"
+          }
+        ]
+      },
+      "manifest": {
+        "url": "https://github.com/super-libre/super-voice-s1-mini/releases/download/v0.2.2/backend.toml",
+        "size": 8060,
+        "sha256": "8df4cef127656ee8fa3ef0b169b245522399481e24447af5ddfaebe61dfe7357"
+      }
+    },
+    {
+      "id": "tidy",
+      "backend_id": "app.super-voice.tidy",
+      "source": "github.com/jorge-menjivar/super-stt-tidy",
+      "version": "0.2.1",
+      "tag": "v0.2.1",
+      "name": "Tidy",
+      "description": "Tidies up dictated text before it is typed. Removes filler sounds, collapses stutters, repairs punctuation and spacing, fixes sentence casing, and spells your vocabulary your way.",
+      "license": "GPL-3.0-only",
+      "kind": "wasm",
+      "contract": "v2",
+      "min_client": "0.2.4-beta.1",
+      "entrypoint": "tidy.wasm",
+      "allowed_hosts": [],
+      "online": false,
+      "supports_gpu": false,
+      "supports_cpu": true,
+      "supports": [
+        "cpu",
+        "dictation_context"
+      ],
+      "models": [
+        {
+          "name": "rules-v1",
+          "provider": "",
+          "supported_devices": [
+            "cpu"
+          ],
+          "role": "post_processor",
+          "accepts_context": true,
+          "clones_voices": false
+        }
+      ],
+      "secrets": [],
+      "options": [
+        {
+          "name": "normalize_unicode",
+          "label": "Normalize punctuation",
+          "type": "bool",
+          "default": true
+        },
+        {
+          "name": "remove_fillers",
+          "label": "Remove filler sounds",
+          "type": "bool",
+          "default": true
+        },
+        {
+          "name": "dedupe_words",
+          "label": "Collapse stutters",
+          "type": "bool",
+          "default": true
+        },
+        {
+          "name": "fix_punctuation",
+          "label": "Repair punctuation spacing",
+          "type": "bool",
+          "default": true
+        },
+        {
+          "name": "collapse_whitespace",
+          "label": "Collapse whitespace",
+          "type": "bool",
+          "default": true
+        },
+        {
+          "name": "sentence_case",
+          "label": "Fix sentence casing",
+          "type": "bool",
+          "default": true
+        },
+        {
+          "name": "vocabulary_spelling",
+          "label": "Spell your vocabulary",
+          "type": "bool",
+          "default": true
+        }
+      ],
+      "assets": {
+        "wasm": {
+          "url": "https://github.com/super-libre/super-voice-tidy/releases/download/v0.2.1/tidy.wasm",
+          "size": 239722,
+          "sha256": "cec252fa6d71a0f725136fa7c04f04dff50806a976c15aedd307551479ba6f4d"
+        }
+      },
+      "manifest": {
+        "url": "https://github.com/super-libre/super-voice-tidy/releases/download/v0.2.1/backend.toml",
+        "size": 4600,
+        "sha256": "eee98059824721a7a3065c14b3526c79357c9906914638dfc41262fe633a37e4"
+      }
+    },
+    {
+      "id": "voxtral",
+      "backend_id": "app.super-voice.voxtral",
+      "source": "github.com/jorge-menjivar/super-stt-voxtral",
+      "version": "0.2.1",
+      "tag": "v0.2.1",
+      "name": "Voxtral",
+      "description": "Local Voxtral speech-to-text.",
+      "license": "GPL-3.0-only",
+      "kind": "subprocess",
+      "contract": "v4",
+      "min_client": "0.3.0",
+      "entrypoint": "super-voice-backend-voxtral",
+      "allowed_hosts": [],
+      "online": false,
+      "supports_gpu": true,
+      "supports_cpu": false,
+      "supports": [
+        "gpu",
+        "dictation_context"
+      ],
+      "models": [
+        {
+          "name": "voxtral-mini-3b-2507",
+          "provider": "",
+          "supported_devices": [
+            "gpu"
+          ],
+          "role": "transcription",
+          "accepts_context": true,
+          "clones_voices": false
+        },
+        {
+          "name": "voxtral-small-24b-2507",
+          "provider": "",
+          "supported_devices": [
+            "gpu"
+          ],
+          "role": "transcription",
+          "accepts_context": true,
+          "clones_voices": false
+        }
+      ],
+      "secrets": [],
+      "options": [],
+      "assets": {
+        "subprocess": [
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 12,
+            "url": "https://github.com/super-libre/super-voice-voxtral/releases/download/v0.2.1/voxtral-x86_64-unknown-linux-gnu-cuda12.tar.gz",
+            "size": 55206494,
+            "sha256": "39129c2d92aa9c12726398c8dd5b7684b1d837e4c1b5cc34518e35110fe5a763"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cuda",
+            "cuda_major": 13,
+            "url": "https://github.com/super-libre/super-voice-voxtral/releases/download/v0.2.1/voxtral-x86_64-unknown-linux-gnu-cuda13.tar.gz",
+            "size": 55204450,
+            "sha256": "fe8478695867c424569b1eed9be1c64685406baafcee9fb4038b8ba3e68caffc"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "rocm",
+            "gfx": [
+              "gfx908",
+              "gfx90a",
+              "gfx942",
+              "gfx1013",
+              "gfx1030",
+              "gfx1100",
+              "gfx1101",
+              "gfx1102",
+              "gfx1150",
+              "gfx1151",
+              "gfx1152",
+              "gfx1200",
+              "gfx1201"
+            ],
+            "url": "https://github.com/super-libre/super-voice-voxtral/releases/download/v0.2.1/voxtral-x86_64-unknown-linux-gnu-rocm.tar.gz",
+            "size": 63400107,
+            "sha256": "b9cc732f506b8fe83a95781a3c36b31b203d82258346c4b6a917196cb7c2b66d"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "vulkan",
+            "vulkan_api": "1.2",
+            "url": "https://github.com/super-libre/super-voice-voxtral/releases/download/v0.2.1/voxtral-x86_64-unknown-linux-gnu-vulkan.tar.gz",
+            "size": 31917638,
+            "sha256": "f34e431916fb3c72c3a2ea0a5a6e20b1e9fda3e0624f7bfb982c54b48a09b65c"
+          },
+          {
+            "target": "aarch64-apple-darwin",
+            "accel": "metal",
+            "url": "https://github.com/super-libre/super-voice-voxtral/releases/download/v0.2.1/voxtral-aarch64-apple-darwin-metal.tar.gz",
+            "size": 26709066,
+            "sha256": "d48cae4fe8d3634ee5c0f61c9cbd564571b9670110f4069cc9e99c9c6b28261c"
+          }
+        ]
+      },
+      "manifest": {
+        "url": "https://github.com/super-libre/super-voice-voxtral/releases/download/v0.2.1/backend.toml",
+        "size": 7231,
+        "sha256": "118dcd50d4167fb46c864f7873230aac868a469fcc66a23ae6f787049d2c0504"
+      }
+    },
+    {
+      "id": "whisper",
+      "backend_id": "app.super-voice.whisper",
+      "source": "github.com/jorge-menjivar/super-stt-whisper",
+      "version": "0.2.2",
+      "tag": "v0.2.2",
+      "name": "Whisper",
+      "description": "Local Whisper speech-to-text.",
+      "license": "GPL-3.0-only",
+      "kind": "subprocess",
+      "contract": "v2",
+      "min_client": "0.2.4-beta.1",
+      "entrypoint": "super-voice-backend-whisper",
+      "allowed_hosts": [],
+      "online": false,
+      "supports_gpu": true,
+      "supports_cpu": true,
+      "supports": [
+        "gpu",
+        "cpu",
+        "dictation_context"
+      ],
+      "models": [
+        {
+          "name": "whisper-tiny",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription",
+          "accepts_context": true,
+          "clones_voices": false
+        },
+        {
+          "name": "whisper-tiny.en",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription",
+          "accepts_context": true,
+          "clones_voices": false
+        },
+        {
+          "name": "whisper-base",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription",
+          "accepts_context": true,
+          "clones_voices": false
+        },
+        {
+          "name": "whisper-base.en",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription",
+          "accepts_context": true,
+          "clones_voices": false
+        },
+        {
+          "name": "whisper-small",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription",
+          "accepts_context": true,
+          "clones_voices": false
+        },
+        {
+          "name": "whisper-small.en",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription",
+          "accepts_context": true,
+          "clones_voices": false
+        },
+        {
+          "name": "whisper-medium",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription",
+          "accepts_context": true,
+          "clones_voices": false
+        },
+        {
+          "name": "whisper-medium.en",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription",
+          "accepts_context": true,
+          "clones_voices": false
+        },
+        {
+          "name": "whisper-large",
+          "provider": "",
+          "supported_devices": [
+            "cpu",
+            "gpu"
+          ],
+          "role": "transcription",
+          "accepts_context": true,
+          "clones_voices": false
+        }
+      ],
+      "secrets": [],
+      "options": [],
+      "assets": {
+        "subprocess": [
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": "cpu",
+            "url": "https://github.com/super-libre/super-voice-whisper/releases/download/v0.2.2/whisper-x86_64-unknown-linux-gnu-cpu.tar.gz",
+            "size": 3648386,
+            "sha256": "52c9128aa6aa10f5192484ab09b8b11472a5df132820303c1c11697f5f2d6179"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": [
+              "cuda",
+              "cpu"
+            ],
+            "cuda_major": 12,
+            "cuda_sm": 75,
+            "url": "https://github.com/super-libre/super-voice-whisper/releases/download/v0.2.2/whisper-x86_64-unknown-linux-gnu-cuda12-sm75.tar.gz",
+            "size": 14803630,
+            "sha256": "715120ef8e591ad0529285f8fc4dd3ccdaab74743db274d12a5c241940c01eaa"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": [
+              "cuda",
+              "cpu"
+            ],
+            "cuda_major": 12,
+            "cuda_sm": 80,
+            "url": "https://github.com/super-libre/super-voice-whisper/releases/download/v0.2.2/whisper-x86_64-unknown-linux-gnu-cuda12-sm80.tar.gz",
+            "size": 14408794,
+            "sha256": "843920abb54accd14ae334409f6280178de0e4e103628da77845a8051b9dcc39"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": [
+              "cuda",
+              "cpu"
+            ],
+            "cuda_major": 12,
+            "cuda_sm": 86,
+            "url": "https://github.com/super-libre/super-voice-whisper/releases/download/v0.2.2/whisper-x86_64-unknown-linux-gnu-cuda12-sm86.tar.gz",
+            "size": 13817060,
+            "sha256": "b092b586e0b7f083dfaabb3a519614665173cf35be3e2689588c6dcb489f40e6"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": [
+              "cuda",
+              "cpu"
+            ],
+            "cuda_major": 12,
+            "cuda_sm": 89,
+            "url": "https://github.com/super-libre/super-voice-whisper/releases/download/v0.2.2/whisper-x86_64-unknown-linux-gnu-cuda12-sm89.tar.gz",
+            "size": 13802590,
+            "sha256": "577af4b2bd237a09c5966e4a2dd4010322495024182da557701bf5af785d97d0"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": [
+              "cuda",
+              "cpu"
+            ],
+            "cuda_major": 12,
+            "cuda_sm": 90,
+            "url": "https://github.com/super-libre/super-voice-whisper/releases/download/v0.2.2/whisper-x86_64-unknown-linux-gnu-cuda12-sm90.tar.gz",
+            "size": 14312931,
+            "sha256": "987ef9dcbef2d25550b6ba84ff53e218baba4694c3cba999102046ab8edf3d01"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": [
+              "cuda",
+              "cpu"
+            ],
+            "cuda_major": 13,
+            "cuda_sm": 75,
+            "url": "https://github.com/super-libre/super-voice-whisper/releases/download/v0.2.2/whisper-x86_64-unknown-linux-gnu-cuda13-sm75.tar.gz",
+            "size": 14924726,
+            "sha256": "d50b8b45f41023a381e177f5d9418fdcacdf8d00943af8e36f150cf300eb94e1"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": [
+              "cuda",
+              "cpu"
+            ],
+            "cuda_major": 13,
+            "cuda_sm": 80,
+            "url": "https://github.com/super-libre/super-voice-whisper/releases/download/v0.2.2/whisper-x86_64-unknown-linux-gnu-cuda13-sm80.tar.gz",
+            "size": 14530973,
+            "sha256": "3340e064eb591ff2b36d9f177716f2c47a8d32d5ee4ebb79c8152d1cd677246c"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": [
+              "cuda",
+              "cpu"
+            ],
+            "cuda_major": 13,
+            "cuda_sm": 86,
+            "url": "https://github.com/super-libre/super-voice-whisper/releases/download/v0.2.2/whisper-x86_64-unknown-linux-gnu-cuda13-sm86.tar.gz",
+            "size": 13941764,
+            "sha256": "7c87b86fa593a629adfa7e61cdd657d5498b0d6e905d61b3448163d12f4ffc88"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": [
+              "cuda",
+              "cpu"
+            ],
+            "cuda_major": 13,
+            "cuda_sm": 89,
+            "url": "https://github.com/super-libre/super-voice-whisper/releases/download/v0.2.2/whisper-x86_64-unknown-linux-gnu-cuda13-sm89.tar.gz",
+            "size": 13919895,
+            "sha256": "6dc8d1ec7958d4b48b8c8beac13a08e6d521bf53fe8115487ea62de6fe48b239"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": [
+              "cuda",
+              "cpu"
+            ],
+            "cuda_major": 13,
+            "cuda_sm": 90,
+            "url": "https://github.com/super-libre/super-voice-whisper/releases/download/v0.2.2/whisper-x86_64-unknown-linux-gnu-cuda13-sm90.tar.gz",
+            "size": 14435860,
+            "sha256": "9e3283a212d0e1bbdcd9b36a57f76aa8087716e8575107bdcf3e8f8231186b1e"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": [
+              "cuda",
+              "cpu"
+            ],
+            "cuda_major": 13,
+            "cuda_sm": 100,
+            "url": "https://github.com/super-libre/super-voice-whisper/releases/download/v0.2.2/whisper-x86_64-unknown-linux-gnu-cuda13-sm100.tar.gz",
+            "size": 16199238,
+            "sha256": "d0f0d4857f0e67fc03b1fda4039d35ea329ad264eb7decdb681ba3662549aee7"
+          },
+          {
+            "target": "x86_64-unknown-linux-gnu",
+            "accel": [
+              "cuda",
+              "cpu"
+            ],
+            "cuda_major": 13,
+            "cuda_sm": 120,
+            "url": "https://github.com/super-libre/super-voice-whisper/releases/download/v0.2.2/whisper-x86_64-unknown-linux-gnu-cuda13-sm120.tar.gz",
+            "size": 16156790,
+            "sha256": "8a9de69cc2582d47f717d39a40a29e59c486984c102f73d6e1829448421063af"
+          },
+          {
+            "target": "aarch64-unknown-linux-gnu",
+            "accel": "cpu",
+            "url": "https://github.com/super-libre/super-voice-whisper/releases/download/v0.2.2/whisper-aarch64-unknown-linux-gnu-cpu.tar.gz",
+            "size": 3158190,
+            "sha256": "64f2ccd10eec0ceef951b01d42a281bbaf63ba6f6965d0d0b629916cc35df015"
+          }
+        ]
+      },
+      "manifest": {
+        "url": "https://github.com/super-libre/super-voice-whisper/releases/download/v0.2.2/backend.toml",
+        "size": 16660,
+        "sha256": "7e15838270c154bfb729e68d75c5ec01addb62707572032c3c94728a092c62aa"
+      }
+    }
+  ]
+}
