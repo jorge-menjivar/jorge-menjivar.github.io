@@ -5,12 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Page not found</title>
 <script>
-  // Super STT's pages moved to /super-voice/ when its repo was renamed.
-  // GitHub Pages doesn't redirect a renamed repo's site, so this page does.
+  // Super Voice's pages were here, under /super-stt/ and then /super-voice/,
+  // and are now at super-libre.github.io/super-voice/. GitHub Pages doesn't
+  // redirect a renamed or moved repo's site, so this page does.
   (function () {
     var l = window.location;
-    var m = l.pathname.match(/^\/super-stt(\/.*)?$/);
-    if (m) l.replace("/super-voice" + (m[1] || "/") + l.search + l.hash);
+    var m = l.pathname.match(/^\/super-(?:stt|voice)(\/.*)?$/);
+    if (m) {
+      l.replace("https://super-libre.github.io/super-voice" + (m[1] || "/") + l.search + l.hash);
+    }
   })();
 </script>
 <style>
@@ -32,6 +35,6 @@
 </head>
 <body>
 <h1>Page not found</h1>
-<p>Looking for Super Voice? It's at <a href="/super-voice/">jorge-menjivar.github.io/super-voice</a>.</p>
+<p>Looking for Super Voice? It's at <a href="https://super-libre.github.io/super-voice/">super-libre.github.io/super-voice</a>.</p>
 </body>
 </html>
